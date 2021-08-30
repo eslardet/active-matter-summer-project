@@ -266,3 +266,22 @@ def two_populations_alpha(N_particles, phi, Pe, alpha_A, alpha_B, rdiff, t, samp
             
             if n % sample_timestep == 0:
                 writer.writerow(np.concatenate((x, y, theta)))
+
+
+### Example paramters and implementation
+
+# N_particles = 3025
+# t = 100
+# sample = 1
+# phi = 0.5
+# Pe = 40
+# delta_t = 2e-5
+# alpha_A = 3
+# alpha_B = 0.3
+# rdiff = 0.5
+
+# name = 'N' + str(N_particles) +  '_phi' + str(phi) + '_Pe' + str(Pe) + '_A' + str(alpha_A) + '_B' + str(alpha_B) + '_s' + str(sample)
+# file = name + '.csv'
+
+# two_populations_alpha(N_particles=N_particles, t=t, delta_t=delta_t, sample=sample,
+#                         phi=phi, Pe=Pe, alpha_A=alpha_A, alpha_B=alpha_B, rdiff=rdiff, file=file)

@@ -347,3 +347,26 @@ def two_populations_alpha_change(N_particles, phi, Pe, alpha_A, alpha_norm_B, al
                     writer1.writerow(np.concatenate((x, y, theta)))
                     writer2.writerow(alphas)
     return x, y, theta
+
+
+### Example parameters and implementation
+# N_particles = 3025
+# t = 100
+# sample = 1
+# phi = 0.5
+# Pe = 40
+# rdiff = 0.5
+# delta_t = 2e-5
+# alpha_A = 3
+# alpha_norm_B = 3
+# alpha_low_B = 0.3
+# t_recovery_B = round(1/3, 2)
+
+# name = 'N' + str(N_particles) +  '_phi' + str(phi) + '_Pe' + str(Pe) + '_A' + str(alpha_A) + '_Blow' + str(alpha_low_B) + 't_rec' + str(t_recovery_B)
+# file1 = name + '_points.csv'
+# file2 = name + '_alpha.csv'
+
+# two_populations_alpha_change(N_particles=N_particles, t=t, delta_t=delta_t, sample=sample,
+#                             phi=phi, Pe=Pe, rdiff=rdiff,
+#                             alpha_A=alpha_A, alpha_norm_B=alpha_norm_B, alpha_low_B=alpha_low_B, t_recovery_B=t_recovery_B,
+#                             file1=file1, file2=file2)
