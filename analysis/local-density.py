@@ -20,6 +20,22 @@ def pbc_wrap(x, L):
 
 @jit(nopython=True)
 def local_density(x, y, N_particles, L, grid_size, grid_number):
+    """
+    ## Calculate local number densities within each smaller grid using sub-box method
+
+    Input:
+    # x: x coordinates of particles
+    # y: y coordinates of particles
+    # N_particles: total number of particles
+    # L: box length
+    # grid_size: box length of grids in sub-box system
+    # grid_number: number of grids per length L in sub-box system
+
+    Output:
+    # n_density: number density of particles within each grid
+    # count_A: number of type A particles in each grid
+    # count_B: number of type B particles in each grid
+    """
     N_A = N_particles // 2
     count_A = np.zeros(grid_number**2)
     count_B = np.zeros(grid_number**2)
@@ -33,6 +49,22 @@ def local_density(x, y, N_particles, L, grid_size, grid_number):
     return n_density, count_A, count_B
 
 def snapshot_local_density(file, N_particles, phi, frame, min_grid_size=5):
+    """
+    ## Calculate local number densities within each smaller grid using sub-box method from csv file
+
+    Input:
+    # file: csv file in which a single row contains all the particle x-coordinates, then y-coordinates and 
+    theta angles at a single sample time (output file from relevant abp model functions)
+    # N_particles: total number of particles
+    # phi: volume fraction
+    # frame: row of csv file to read
+    # min_grid_size: minimum grid length to use for sub-box method (default: 5)
+
+    Output:
+    # n_density: number density of particles within each grid
+    # count_A: number of type A particles in each grid
+    # count_B: number of type B particles in each grid
+    """
     with open(file, "r", encoding="utf-8", errors="ignore") as scraped:
         final_line = scraped.readlines()[frame]
         
@@ -48,6 +80,23 @@ def snapshot_local_density(file, N_particles, phi, frame, min_grid_size=5):
     return n_density, count_A, count_B
 
 def plot_densities(file, N_particles, phi, frames, label, color, min_grid_size=5, ax=None):
+    """
+    ## Plot a probability distribution (kernel density estimation from histogram) plot from local number densities
+
+    Input:
+    # file: csv file in which a single row contains all the particle x-coordinates, then y-coordinates and 
+    theta angles at a single sample time (output file from relevant abp model functions)
+    # N_particles: total number of particles
+    # phi: volume fraction
+    # frames: rows of csv file to read to add to histogram
+    # label: label for plot
+    # color: colour for line plot
+    # min_grid_size: minimum grid length to use for sub-box method (default: 5)
+    # ax: axis on which to plot (if None then a figure and axis is created)
+
+    Output:
+    # ax: axis with plotted probability distribution
+    """
     all_density = []
     all_density = np.array(all_density)
 
@@ -65,6 +114,22 @@ def plot_densities(file, N_particles, phi, frames, label, color, min_grid_size=5
     return ax
 
 def plot_gas_frac(file, N_particles, phi, frames, sample=1, min_grid_size=5, ax=None):
+    """
+    ## Plot fraction of particle in gas phase (defined as N/V<0.9 in this case) over time from csv file
+
+    Input:
+    # file: csv file in which a single row contains all the particle x-coordinates, then y-coordinates and 
+    theta angles at a single sample time (output file from relevant abp model functions)
+    # N_particles: total number of particles
+    # phi: volume fraction
+    # frames: rows of csv file to read to add to histogram
+    # sample: time between samples for csv file
+    # min_grid_size: minimum grid length to use for sub-box method (default: 5)
+    # ax: axis on which to plot (if None then a figure and axis is created)
+
+    Output:
+    # ax: axis with plotted line
+    """
     if ax == None:
         fig, ax = plt.subplots()
     
@@ -78,6 +143,21 @@ def plot_gas_frac(file, N_particles, phi, frames, sample=1, min_grid_size=5, ax=
     return ax
 
 def plot_density_frac(file, N_particles, phi, frames, min_grid_size=5, ax=None):
+    """
+    ## Plot fraction of particles  in each grid against grid number density from csv file for type A and type B particles
+
+    Input:
+    # file: csv file in which a single row contains all the particle x-coordinates, then y-coordinates and 
+    theta angles at a single sample time (output file from relevant abp model functions)
+    # N_particles: total number of particles
+    # phi: volume fraction
+    # frames: rows of csv file to read to add to histogram
+    # min_grid_size: minimum grid length to use for sub-box method (default: 5)
+    # ax: two axes ax[0] and ax[1] on which to plot (if None then a figure and axis is created)
+
+    Output:
+    # ax: axes with plotted scatter and line plots
+    """
     all_density = []
     all_density = np.array(all_density)
     all_frac_A = []
@@ -96,7 +176,7 @@ def plot_density_frac(file, N_particles, phi, frames, min_grid_size=5, ax=None):
                 all_frac_B = np.append(all_frac_B, count_B[i] / (count_total[i]))
 
     if ax == None:
-        fig, ax = plt.subplots()
+        fig, ax = plt.subplots(1, 2)
     
     x_plot = np.linspace(0, 1.5, 100)
     m_A, b_A = np.polyfit(all_density, all_frac_A, 1)
