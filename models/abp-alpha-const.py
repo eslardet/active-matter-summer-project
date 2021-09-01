@@ -186,7 +186,7 @@ def max_displacement(dxnei, dynei, N_particles):
 def two_populations_alpha(N_particles, phi, Pe, alpha_A, alpha_B, rdiff, t, sample, delta_t, file):
     """
     ## Performs an Euler method to solve the overdamped Langevin equations (SDEs) and saves x, y and theta
-    ## values to a csv file every sample tau
+    ## values to a single row of a csv file every sample tau
 
     Input:
     # N_particles: total number of particles
@@ -226,6 +226,7 @@ def two_populations_alpha(N_particles, phi, Pe, alpha_A, alpha_B, rdiff, t, samp
     x, y = np.meshgrid(x, x, sparse=False, indexing='xy')
     x = x.flatten()
     y = y.flatten()
+    # Randomise order
     j = np.random.permutation(N_particles)
     x = x[j]
     y = y[j]

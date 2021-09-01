@@ -186,7 +186,7 @@ def max_displacement(dxnei, dynei, N_particles):
 def abp_one_population(N_particles, phi, Pe, rdiff, t, sample, delta_t, method, file):
     """
     ## Performs an Euler or SRK method to solve the overdamped Langevin equations (SDEs) and saves x, y and theta
-    ## values to a csv file every sample tau
+    ## values to a single row of a csv file every sample tau
     
     Input:
     # N_particles: total number of particles
@@ -295,8 +295,8 @@ def abp_one_population(N_particles, phi, Pe, rdiff, t, sample, delta_t, method, 
 
 ### Example paramters and implementation
 
-# N_particles = 100
-# t = 10
+# N_particles = 1024
+# t = 100
 # sample = 1
 # delta_t = 2e-5
 # phi = 0.6
