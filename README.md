@@ -13,7 +13,7 @@ All the models have been updated to use an efficient combined neighbour list met
 
 ## Analysis
 - `anis_snapshots.py': Functions to plot snapshots and create animations for both one population and two population models
-- `dp.py': Function to calculate demixing parameter (using Python package Freud)
+- `dp.py': Function to calculate demixing parameter (using Python package freud)
 - `local-density.py': Various functions for calculating and plotting local number densities
 
 ## Figures
