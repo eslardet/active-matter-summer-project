@@ -144,7 +144,7 @@ def plot_gas_frac(file, N_particles, phi, frames, sample=1, min_grid_size=5, ax=
 
 def plot_density_frac(file, N_particles, phi, frames, min_grid_size=5, ax=None):
     """
-    ## Plot fraction of particles  in each grid against grid number density from csv file for type A and type B particles
+    ## Plot fraction of particles in each grid against grid number density from csv file for type A and type B particles
 
     Input:
     # file: csv file in which a single row contains all the particle x-coordinates, then y-coordinates and 
