@@ -53,7 +53,7 @@ def csv_snapshot_1pop(file, N_particles, phi, sample, row_to_read, arrows=False)
     ax.set_title("t=" + str(int(round(row_to_read * sample, 0))) + r"$\tau$")
     plt.show()
 
-def csv_snapshot_2pops(file, N_particles, phi, sample, row_to_read, arrows=False):
+def csv_snapshot_2pop(file, N_particles, phi, sample, row_to_read, arrows=False):
     """
     ## Plot a snapshot of a two population simulation from csv file
 
@@ -89,9 +89,9 @@ def csv_snapshot_2pops(file, N_particles, phi, sample, row_to_read, arrows=False
     ax.set_title("t=" + str(int(round(row_to_read * sample, 0))) + r"$\tau$")
     return fig, ax
 
-def csv_make_ani_2pops(file, N_particles, phi, sample, frames, arrows=False):
+def csv_make_ani_1pop(file, N_particles, phi, sample, frames, arrows=False):
     """
-    ## Plot a snapshot of a two population simulation from csv file
+    ## Plot a snapshot of a one population simulation from csv file
 
     Input:
     # file: csv file in which a single row contains all the particle x-coordinates, then y-coordinates and 
@@ -154,7 +154,7 @@ def csv_make_ani_2pops(file, N_particles, phi, sample, frames, arrows=False):
     ani = FuncAnimation(fig, update, init_func=init, frames=frames, interval=10, blit=True)
     return ani
 
-def csv_make_ani_2pops(file, N_particles, phi, sample, frames, arrows=False):
+def csv_make_ani_2pop(file, N_particles, phi, sample, frames, arrows=False):
     """
     ## Plot a snapshot of a two population simulation from csv file
 
