@@ -1,7 +1,7 @@
 This repository contains a summary of my 10 week summer research project at Imperial College London. Hopefully there is enough information and code for someone to pick up this project some time in the future. Feel free to contact me with any questions at <eloise.lardet@gmail.com>.
 
 ## Overview
-For a detailed overview of the project please read the `xxx' document. This explains all the equations and models behind the Python code, as well as discussion of relevant figures and analyses about phase separation and demixing. There is also an explanation of the efficient neighbour list used to speed up simulation times.
+For a detailed overview of the project please read the report document. This explains all the equations and models behind the Python code, as well as discussion of relevant figures and analyses about phase separation and demixing. There is also an explanation of the efficient neighbour list used to speed up simulation times.
 
 ## Models
 Key numerical models used throughout the project written in Python.
