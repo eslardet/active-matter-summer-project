@@ -7,14 +7,14 @@ For a detailed overview of the project please read the report document. This exp
 Key numerical models used throughout the project written in Python.
 All the models have been updated to use an efficient combined neighbour list method, along with the Python package numba.
 
-- 'abp-one-pop.py': One population ABP model using Euler or SRK method.
-- 'abp-alpha-const.py': Two population ABP model with different (constant) persistences using Euler method.
-- 'abp-alpha-change.py': Two population ABP model with a decrease in persistence in particle type B after an A/B collision
+- `abp-one-pop.py`: One population ABP model using Euler or SRK method.
+- `abp-alpha-const.py`: Two population ABP model with different (constant) persistences using Euler method.
+- `abp-alpha-change.py`: Two population ABP model with a decrease in persistence in particle type B after an A/B collision
 
 ## Analysis
-- `anis_snapshots.py': Functions to plot snapshots and create animations for both one population and two population models
-- `dp.py': Function to calculate demixing parameter (using Python package freud)
-- `local-density.py': Various functions for calculating and plotting local number densities
+- `anis_snapshots.py`: Functions to plot snapshots and create animations for both one population and two population models
+- `dp.py`: Function to calculate demixing parameter (using Python package freud)
+- `local-density.py`: Various functions for calculating and plotting local number densities
 
 ## Figures
 Various figures contained in the report linked above (most generated from functions in Analysis codes). There are also a few animation examples :)
