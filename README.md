@@ -20,5 +20,5 @@ All the models have been updated to use an efficient combined neighbour list met
 Various figures contained in the report linked above (most generated from functions in Analysis codes). There are also a few animation examples :)
 
 ## Presentations
-*Phase Separation in Biological Tissues* is a presentation I prepared for a group meeting with other students working in similar areas. For a more gentle introduction, *How Did the Zebrafish Get Its Stripes* is a short presentation for a lay audiance prepared as part of our weekly communications trainings. 
+*Phase Separation in Biological Tissues* is a presentation I prepared for both of my supervisors' group meetings, with other students working in similar areas. For a more gentle introduction, *How Did the Zebrafish Get Its Stripes* is a short presentation for a lay audiance prepared as part of our weekly communications trainings. 
 
